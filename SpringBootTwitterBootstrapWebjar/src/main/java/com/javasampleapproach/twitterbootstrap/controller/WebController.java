@@ -27,7 +27,7 @@ public class WebController {
     	
     	System.out.println(user.getId());
     	System.out.println(user.getPassword());
-        return "index";
+        return "sidebar";
         
         
     }
