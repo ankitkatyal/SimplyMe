@@ -1,4 +1,4 @@
-package com.javasampleapproach.twitterbootstrap.controller;
+package com.society.management.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import com.society.management.domain.User;
   
 @Controller
-public class WebController {
+public class LoginController {
 	
     @RequestMapping(value="/",method = RequestMethod.GET)
     public String home(){
