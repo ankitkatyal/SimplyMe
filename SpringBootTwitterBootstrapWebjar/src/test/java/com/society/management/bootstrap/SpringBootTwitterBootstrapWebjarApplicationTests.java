@@ -1,4 +1,4 @@
-package com.javasampleapproach.twitterbootstrap;
+package com.society.management.bootstrap;
 
 import org.junit.Ignore;
 import org.junit.Test;
