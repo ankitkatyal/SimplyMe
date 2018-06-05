@@ -15,7 +15,7 @@ public class LoginController {
 	
     @RequestMapping(value="/",method = RequestMethod.GET)
     public String home(){
-        return "login";
+        return "videoLogin";
     }
     
 
