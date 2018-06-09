@@ -6,10 +6,10 @@ import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
 @ComponentScan("com.society.management") 
-public class SpringBootTwitterBootstrapWebjarApplication {
+public class LotusBoulevardSocietyManagement {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SpringBootTwitterBootstrapWebjarApplication.class, args);
+		SpringApplication.run(LotusBoulevardSocietyManagement.class, args);
 	}
 }
 

@@ -74,7 +74,7 @@
 				<groupId>org.codehaus.mojo</groupId>
 				<artifactId>exec-maven-plugin</artifactId>
 				<configuration>
-					<mainClass>com.society.management.bootstrap.SpringBootTwitterBootstrapWebjarApplication</mainClass>
+					<mainClass>com.society.management.bootstrap.LotusBoulevardSocietyManagement</mainClass>
 				</configuration>
 			</plugin>
 		</plugins>
