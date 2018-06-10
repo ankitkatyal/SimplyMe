@@ -1,0 +1,7 @@
+Hello [context1] ,
+
+Welcome to lotus boulevard, you are part of lotus boulevard family.
+
+
+Thanks,
+[eventBy]

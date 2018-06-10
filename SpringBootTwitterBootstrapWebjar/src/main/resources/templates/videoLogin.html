@@ -1,18 +1,14 @@
-<!--Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <!DOCTYPE HTML>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
-<title>Transparent Login Form Responsive Widget Template | Home :: w3layouts</title>
+<title>Lotus Boulevard Home</title>
 <link href="css/videoStyle.css" rel="stylesheet" type="text/css" media="all"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <meta name="keywords" content="Transparent Login Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
 <!--web-fonts-->
 <link href='//fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css' />
+
 <!--web-fonts-->
 
     <style>
@@ -35,10 +31,10 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <!--main-->
 <div class="main-content-agile">
 	<div class="sub-main-w3">	
-		<form action="#" method="post" style="color:black;">
-			<input placeholder="E-mail" name="Name" class="user" type="text" required="" />
+		<form action="#"  th:action="@{/login}" th:object="${user}"  method="post" style="color:black;">
+			<input placeholder="E-mail" name="Email"  th:field="*{email}"  type="email" required="" />
 			<br></br>
-			<input  placeholder="Password" name="Password" class="pass" type="password" required="" />
+			<input  placeholder="Password" name="Password"  th:field="*{password}" type="password" required="" />
 			<br></br>
 			<input type="submit" value=""/>
 		</form>
@@ -50,7 +46,5 @@ License URL: http://creativecommons.org/licenses/by/3.0/
 <div class="footer">
 	<p style="color:black;">&copy; Page designed by Simplified Solution</p>
 </div>
-<!--//footer-->
-
 </body>
 </html>

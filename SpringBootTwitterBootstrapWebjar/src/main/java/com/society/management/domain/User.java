@@ -1,22 +1,132 @@
 package com.society.management.domain;
 
 public class User {
-	
-	private String id;
+
+	private int id;
+	private String firstName;
+	private String middleName;
+	private String lastName;
+	private String primaryContact;
+	private String secondContact;
+	private String email;
+	private String birthday;
+	private String aadharNumber;
 	private String password;
-	public String getId() {
+	private String type;
+	private Integer statInd;
+	private Integer createDt;
+	private Integer updateDt;
+
+	public int getId() {
 		return id;
 	}
-	public void setId(String id) {
+
+	public void setId(int id) {
 		this.id = id;
 	}
+
+	public String getFirstName() {
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		this.firstName = firstName;
+	}
+
+	public String getMiddleName() {
+		return middleName;
+	}
+
+	public void setMiddleName(String middleName) {
+		this.middleName = middleName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getPrimaryContact() {
+		return primaryContact;
+	}
+
+	public void setPrimaryContact(String primaryContact) {
+		this.primaryContact = primaryContact;
+	}
+
+	public String getSecondContact() {
+		return secondContact;
+	}
+
+	public void setSecondContact(String secondContact) {
+		this.secondContact = secondContact;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getBirthday() {
+		return birthday;
+	}
+
+	public void setBirthday(String birthday) {
+		this.birthday = birthday;
+	}
+
+	public String getAadharNumber() {
+		return aadharNumber;
+	}
+
+	public void setAadharNumber(String aadharNumber) {
+		this.aadharNumber = aadharNumber;
+	}
+
 	public String getPassword() {
 		return password;
 	}
+
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
-	
+
+	public String getType() {
+		return type;
+	}
+
+	public void setType(String type) {
+		this.type = type;
+	}
+
+	public Integer getStatInd() {
+		return statInd;
+	}
+
+	public void setStatInd(Integer statInd) {
+		this.statInd = statInd;
+	}
+
+	public Integer getCreateDt() {
+		return createDt;
+	}
+
+	public void setCreateDt(Integer createDt) {
+		this.createDt = createDt;
+	}
+
+	public Integer getUpdateDt() {
+		return updateDt;
+	}
+
+	public void setUpdateDt(Integer updateDt) {
+		this.updateDt = updateDt;
+	}
 
 }
