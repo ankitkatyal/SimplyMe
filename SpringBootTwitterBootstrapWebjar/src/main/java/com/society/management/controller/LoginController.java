@@ -22,7 +22,7 @@ public class LoginController {
 	public String Greeting(@ModelAttribute("user") User user, ModelMap userMap) {
 		userMap.addAttribute("username", user.getEmail());
 		userMap.addAttribute("password", user.getPassword());
-		return "sidebar";
+		return "HomeMenu";
 
 	}
 }
