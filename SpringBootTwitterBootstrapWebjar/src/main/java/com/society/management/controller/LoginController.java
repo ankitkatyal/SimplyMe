@@ -20,13 +20,8 @@ public class LoginController {
 
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public String Greeting(@ModelAttribute("user") User user, ModelMap userMap) {
-
 		userMap.addAttribute("username", user.getEmail());
 		userMap.addAttribute("password", user.getPassword());
-
-		System.out.println(user.getEmail());
-		System.out.println(user.getPassword());
-
 		return "sidebar";
 
 	}
