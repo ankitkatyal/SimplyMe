@@ -2,8 +2,16 @@ package com.society.management.domain;
 
 import java.util.Date;
 
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+
+@Entity
 public class Bill {
 	
+	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int billId;
 	private String customerName;
 	private Date startDate;

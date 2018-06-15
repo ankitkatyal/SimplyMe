@@ -13,9 +13,9 @@ public class UserServiceImpl implements UserServices {
 
 	@Override
 	public boolean doLogin(User user) {
-        User userinfo = userRepo.findByEmail(user.getEmail());		
-		
-        return false;
+		User userinfo = userRepo.findByEmail(user.getEmail());
+
+		return false;
 	}
 
 	@Override
