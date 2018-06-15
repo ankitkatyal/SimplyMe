@@ -1,28 +1,35 @@
 package com.society.management.controller;
 
-import java.util.ArrayList;
-import java.util.List;
-
-import org.springframework.stereotype.Controller;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.RestController;
 
 import com.society.management.domain.Bill;
-import com.society.management.domain.BillGrid;
+import com.society.management.service.BillService;
 
-@Controller
+@RestController
 public class BillController {
-	
-	@RequestMapping(value = "/get", method = RequestMethod.GET)
-	public ModelAndView get() {
-		
-		BillGrid billForm = new BillGrid();
-		List<Bill> billingList=new ArrayList<>();
-		billForm.setBillingList(billingList);
-		
-		return new ModelAndView("BillForm" , "billForm",billForm);
+
+	@Autowired
+	private BillService billService;
+
+	@RequestMapping(value = "/bill/{id}", method = RequestMethod.GET)
+	public Bill findById(@PathVariable("id") int id) {
+
+		return billService.findById(id);
 	}
 
+	@RequestMapping(value = "/bill", method = RequestMethod.POST)
+	public Bill addBill(@RequestBody Bill bill) {
+		return billService.save(bill);
+	}
+
+	@RequestMapping(value = "/bill/{id}", method = RequestMethod.DELETE)
+	public void deleteBill(@PathVariable("id") int id) {
+		billService.deleteBill(id);
+	}
 
 }
