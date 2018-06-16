@@ -332,7 +332,7 @@ ul.list-login li:nth-child(2) {
 
 .checkbox input+i:after {
     content: '';
-    background: url(images/check.png) no-repeat 1px;
+    background: url('../images/check.png') no-repeat 1px;
     top: 0px;
     left: 0px;
     width: 14px;
