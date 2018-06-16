@@ -18,6 +18,7 @@
         function hideURLbar() {
             window.scrollTo(0, 1);
         }
+        
     </script>
 <link rel="stylesheet" href="css/transstyle.css" type="text/css"
 	media="all" />
@@ -62,25 +63,26 @@
 		<div class="tab-content">
 			<div id="login">
 				<div class="content-bottom">
-					<form action="#" method="post">
+					<form action="#" th:action="@{/login}" th:object="${user}" method="post">
 						<div class="field-group">
 							<span class="fa fa-user" aria-hidden="true"></span>
 							<div class="wthree-field">
-								<input name="text1" id="text1" type="text" value=""
-									placeholder="username" required="required" />
+								<input name="email" id="email" th:field="*{email}" type="email" value=""
+									placeholder="Email" required="required" />
 							</div>
 						</div>
 						<div class="field-group">
 							<span class="fa fa-lock" aria-hidden="true"></span>
 							<div class="wthree-field">
-								<input name="password" id="myInput1" type="Password"
+								<input name="password" id="myInput1" th:field="*{password}"  type="Password"
 									placeholder="password" required="required" />
 							</div>
 						</div>
 						<div class="field-group">
 							<div class="check">
-								<label class="checkbox w3l"> <input type="checkbox"
-									onclick="myFunction1()" /> <i> </i>show password
+								<input type="checkbox"
+									onclick="myFunction1()" /> 
+									<label class="checkbox w3l" >show password
 								</label>
 							</div>
 							<!-- script for show password -->
@@ -101,20 +103,20 @@
 			</div>
 			<div id="signup">
 				<div class="content-bottom">
-					<form action="#" method="post">
+					<form action="#" th:action="@{/login}" th:object="${user}" method="post">
 						<div class="field-group">
 							<span class="fa fa-user" aria-hidden="true"></span>
 							<div class="wthree-field">
 								<div class="col-md-6">
 									<div class="form-inline">
-										<input name="text1" id="firstName" type="text" value=""
-											placeholder="Please enter First Name" required="required" />
+										<input name="text1" id="firstName" th:field="*{firstName}" type="text" value=""
+											placeholder="First Name" required="required" />
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-inline">
-										<input name="text1" id="lastName" type="text" value=""
-											placeholder="Please enter Last Name" />
+										<input name="text1" id="lastName" th:field="*{lastName}" type="text" value=""
+											placeholder="Last Name" />
 									</div>
 								</div>
 
@@ -123,23 +125,23 @@
 						<div class="field-group">
 							<span class="fa fa-lock" aria-hidden="true"></span>
 							<div class="wthree-field">
-								<input name="email" id="email" type="email" placeholder="Email"
+								<input name="email" id="SignEmail" type="email"  th:field="*{email}" placeholder="Email"
 									required="required" />
 							</div>
 						</div>
 						<div class="field-group">
 							<span class="fa fa-lock" aria-hidden="true"></span>
 							<div class="wthree-field">
-								<input name="password" id="myInput" type="Password"
+								<input name="password" id="myInput" th:field="*{password}" type="Password"
 									placeholder="password" required="required" />
 							</div>
 						</div>
 						<div class="field-group">
 							<div class="check">
-								<label class="checkbox w3l"> <input type="checkbox"
-									onclick="myFunction()" /> <i> </i>show password
+								<input type="checkbox" onclick="myFunction()"  />
+								<label class="checkbox w3l" >show password
 								</label>
-							</div>
+								</div>
 							<!-- script for show password -->
 						
 							<!-- //script for show password -->

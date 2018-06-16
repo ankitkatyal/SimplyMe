@@ -223,30 +223,7 @@ ul.list-login li:nth-child(2) {
 	cursor: pointer;
 }
 
-.checkbox input:checked+i:after, .radio input:checked+i:after {
-	opacity: 1;
-}
 
-.checkbox input+i:after {
-	content: '';
-	background: url('../images/check.png') no-repeat 1px;
-	top: 0px;
-	left: 0px;
-	width: 14px;
-	height: 14px;
-	font: normal 8px/16px FontAwesome;
-	text-align: center;
-}
-
-.checkbox input+i:after, .radio input+i:after {
-	position: absolute;
-	opacity: 0;
-	transition: opacity 0.1s;
-	-o-transition: opacity 0.1s;
-	-ms-transition: opacity 0.1s;
-	-moz-transition: opacity 0.1s;
-	-webkit-transition: opacity 0.1s;
-}
 
 /*/////////////// FORM STYLES ////////////////////*/
 form .field-group {
@@ -324,7 +301,20 @@ form .field-group .wthree-field {
 	height: 56px;
 	width: 50%;
 }
-
+::-webkit-input-placeholder { /* Chrome */
+  color: black;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: black;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: black;
+  opacity: 1;
+}
+:-moz-placeholder { /* Firefox 4 - 18 */
+  color: black;
+  opacity: 1;
+}
 .wthree-field input[type="signup"] {
 	background: #742ecc;
 	border: none;
