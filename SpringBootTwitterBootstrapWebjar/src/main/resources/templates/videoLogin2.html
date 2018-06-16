@@ -1,0 +1,199 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<title>Lotus Boulevard Home</title>
+<link href="css/videoStyle.css" rel="stylesheet" type="text/css"
+	media="all" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="keywords"
+	content="Transparent Login Form Responsive Widget,Login form widgets, Sign up Web forms , Login signup Responsive web form,Flat Pricing table,Flat Drop downs,Registration Forms,News letter Forms,Elements" />
+<link rel="stylesheet" href="css/normalize.min.css" />
+
+<script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+<link rel="stylesheet" href="css/transstyle.css" type="text/css"
+	media="all" />
+<link rel="stylesheet" href="css/font-awesome.css" type="text/css"
+	media="all" />
+
+<link rel="stylesheet" href="css/header.css" />
+<link rel="stylesheet" href="css/signup.css" />
+</head>
+
+<body>
+	<!--header started-->
+	<div class="header">
+		<a href="#default" class="logo">Lotus Boulevard</a>
+		<div class="header-right">
+			<a class="active" href="#home">Home</a> <a href="#contact">Contact</a>
+		</div>
+	</div>
+	<!--header closed-->
+
+
+	<!--video started-->
+	<div class="fullscreen-bg">
+		<video loop="loop" autoplay="autoplay" poster="images/lb.jpg"
+			class="fullscreen-bg__video">
+			<source src="videos/nature.webm" type="video/webm" />
+			<source src="videos/nature.mp4" type="video/mp4" />
+			<source src="videos/nature.ogv" type="video/ogg" />
+		</video>
+	</div>
+	<!--video closed-->
+
+
+
+
+	<div class="content-w3ls">
+		<ul class="tab-group">
+			<li class="tab active"><a href="#login">Log In</a></li>
+			<li class="tab"><a href="#signup">Sign Up</a></li>
+
+		</ul>
+		<div class="tab-content">
+			<div id="login">
+				<div class="content-bottom">
+					<form action="#" method="post">
+						<div class="field-group">
+							<span class="fa fa-user" aria-hidden="true"></span>
+							<div class="wthree-field">
+								<input name="text1" id="text1" type="text" value=""
+									placeholder="username" required="required" />
+							</div>
+						</div>
+						<div class="field-group">
+							<span class="fa fa-lock" aria-hidden="true"></span>
+							<div class="wthree-field">
+								<input name="password" id="myInput1" type="Password"
+									placeholder="password" required="required" />
+							</div>
+						</div>
+						<div class="field-group">
+							<div class="check">
+								<label class="checkbox w3l"> <input type="checkbox"
+									onclick="myFunction1()" /> <i> </i>show password
+								</label>
+							</div>
+							<!-- script for show password -->
+						
+							<!-- //script for show password -->
+						</div>
+						<div class="wthree-field">
+							<input id="saveForm" name="saveForm" type="submit"
+								value="sign in" />
+						</div>
+						<ul class="list-login">
+							<li class="tab"><a href="#signup">Sign Up</a></li>
+							<li><a href="#" class="text-right">forgot password?</a></li>
+							<li class="clearfix"></li>
+						</ul>
+					</form>
+				</div>
+			</div>
+			<div id="signup">
+				<div class="content-bottom">
+					<form action="#" method="post">
+						<div class="field-group">
+							<span class="fa fa-user" aria-hidden="true"></span>
+							<div class="wthree-field">
+								<div class="col-md-6">
+									<div class="form-inline">
+										<input name="text1" id="firstName" type="text" value=""
+											placeholder="Please enter First Name" required="required" />
+									</div>
+								</div>
+								<div class="col-md-6">
+									<div class="form-inline">
+										<input name="text1" id="lastName" type="text" value=""
+											placeholder="Please enter Last Name" />
+									</div>
+								</div>
+
+							</div>
+						</div>
+						<div class="field-group">
+							<span class="fa fa-lock" aria-hidden="true"></span>
+							<div class="wthree-field">
+								<input name="email" id="email" type="email" placeholder="Email"
+									required="required" />
+							</div>
+						</div>
+						<div class="field-group">
+							<span class="fa fa-lock" aria-hidden="true"></span>
+							<div class="wthree-field">
+								<input name="password" id="myInput" type="Password"
+									placeholder="password" required="required" />
+							</div>
+						</div>
+						<div class="field-group">
+							<div class="check">
+								<label class="checkbox w3l"> <input type="checkbox"
+									onclick="myFunction()" /> <i> </i>show password
+								</label>
+							</div>
+							<!-- script for show password -->
+						
+							<!-- //script for show password -->
+						</div>
+						<div class="wthree-field">
+							<input id="saveDetails" name="saveDetails" type="submit"
+								value="sign up" />
+						</div>
+						<ul class="list-login">
+							<li class="tab"><div class="wthree-field">
+									<a href="#login">Login</a>
+								</div></li>
+							<li><a href="#" class="text-right">forgot password?</a></li>
+							<li class="clearfix"></li>
+						</ul>
+					</form>
+				</div>
+			</div>
+		</div>
+
+
+	</div>
+
+	<!--//main-->
+
+	<!--footer-->
+	<div class="footer">
+		<p style="color: black;">&copy; Page designed by Simplified
+			Solution</p>
+	</div>
+		<script>
+                        function myFunction1() {
+                        	document.getElementById("myInput1").innerHTML = 5 + 6;
+                            var x = document.getElementById("myInput1");
+                            if (x.type === "password") {
+                                x.type = "text";
+                            } else {
+                                x.type = "password";
+                            }
+                        }
+                    </script>
+                    	<script>
+                        function myFunction() {
+                        	document.getElementById("myInput").innerHTML = 5 + 7;
+                        	
+                            var x = document.getElementById("myInput");
+                            if (x.type === "password") {
+                                x.type = "text";
+                            } else {
+                                x.type = "password";
+                            }
+                        }
+                    </script>
+	<script src='js/jquery.min.js'></script>
+	<script src="js/loginSignup.js"></script>
+</body>
+</html>
