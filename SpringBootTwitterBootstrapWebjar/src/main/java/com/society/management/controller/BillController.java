@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.society.management.domain.Bill;
+import com.society.management.entity.Bill;
 import com.society.management.service.BillService;
 
 @RestController

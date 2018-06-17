@@ -1,10 +1,13 @@
 package com.society.management.service;
 
-import com.society.management.entity.User;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.UserDetailsService;
 
-public interface UserServices {
+import com.society.management.entity.UserInfo;
 
-	public boolean doLogin(User user);
+public interface UserServices extends UserDetailsService {
 
-	public boolean doRegistration(User user);
+	public User doLogin(UserInfo user);
+
+	public UserInfo doRegistration(UserInfo user);
 }

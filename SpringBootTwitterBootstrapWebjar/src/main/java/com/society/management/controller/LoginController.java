@@ -9,13 +9,12 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.society.management.domain.User;
 
-
 @Controller
 public class LoginController {
 
-	@RequestMapping(value = "/", method = RequestMethod.GET)
+	@RequestMapping("/")
 	public String home(Model model) {
-     model.addAttribute("user", new User());
+		model.addAttribute("user", new User());
 		return "videoLogin2";
 	}
 

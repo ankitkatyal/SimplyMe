@@ -1,17 +1,18 @@
 package com.society.management.entity;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.SequenceGenerator;
+import javax.persistence.OneToOne;
+
 
 @Entity
-public class User {
+public class UserInfo extends BaseEntity{
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "user_sequence")
-	@SequenceGenerator(name = "user_sequence", sequenceName = "USER_SEQUENCE")
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private int id;
 	@Column(name = "first_name")
 	private String firstName;
@@ -39,14 +40,16 @@ public class User {
 	private Integer createDt;
 	@Column(name = "update_date")
 	private Integer updateDt;
+	@OneToOne(cascade = CascadeType.ALL)
+	RoleInfo roleInfo;
 
-	public User() {
+	public UserInfo() {
 		super();
 	}
 
-	public User(int id, String firstName, String middleName, String lastName, String primaryContact,
+	public UserInfo(int id, String firstName, String middleName, String lastName, String primaryContact,
 			String secondContact, String email, String birthday, String aadharNumber, String password, String type,
-			Integer statInd, Integer createDt, Integer updateDt) {
+			Integer statInd, Integer createDt, Integer updateDt, RoleInfo roleInfo) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -62,6 +65,7 @@ public class User {
 		this.statInd = statInd;
 		this.createDt = createDt;
 		this.updateDt = updateDt;
+		this.roleInfo = roleInfo;
 	}
 
 	public int getId() {
@@ -176,19 +180,28 @@ public class User {
 		this.updateDt = updateDt;
 	}
 
+	public RoleInfo getRoleInfo() {
+		return roleInfo;
+	}
+
+	public void setRoleInfo(RoleInfo roleInfo) {
+		this.roleInfo = roleInfo;
+	}
+
 	@Override
 	public String toString() {
-		return "User [id=" + id + ", firstName=" + firstName + ", middleName=" + middleName + ", lastName=" + lastName
-				+ ", primaryContact=" + primaryContact + ", secondContact=" + secondContact + ", email=" + email
-				+ ", birthday=" + birthday + ", aadharNumber=" + aadharNumber + ", password=" + password + ", type="
-				+ type + ", statInd=" + statInd + ", createDt=" + createDt + ", updateDt=" + updateDt + ", getId()="
-				+ getId() + ", getFirstName()=" + getFirstName() + ", getMiddleName()=" + getMiddleName()
-				+ ", getLastName()=" + getLastName() + ", getPrimaryContact()=" + getPrimaryContact()
-				+ ", getSecondContact()=" + getSecondContact() + ", getEmail()=" + getEmail() + ", getBirthday()="
-				+ getBirthday() + ", getAadharNumber()=" + getAadharNumber() + ", getPassword()=" + getPassword()
-				+ ", getType()=" + getType() + ", getStatInd()=" + getStatInd() + ", getCreateDt()=" + getCreateDt()
-				+ ", getUpdateDt()=" + getUpdateDt() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode()
-				+ ", toString()=" + super.toString() + "]";
+		return "UserInfo [id=" + id + ", firstName=" + firstName + ", middleName=" + middleName + ", lastName="
+				+ lastName + ", primaryContact=" + primaryContact + ", secondContact=" + secondContact + ", email="
+				+ email + ", birthday=" + birthday + ", aadharNumber=" + aadharNumber + ", password=" + password
+				+ ", type=" + type + ", statInd=" + statInd + ", createDt=" + createDt + ", updateDt=" + updateDt
+				+ ", roleInfo=" + roleInfo + ", getId()=" + getId() + ", getFirstName()=" + getFirstName()
+				+ ", getMiddleName()=" + getMiddleName() + ", getLastName()=" + getLastName() + ", getPrimaryContact()="
+				+ getPrimaryContact() + ", getSecondContact()=" + getSecondContact() + ", getEmail()=" + getEmail()
+				+ ", getBirthday()=" + getBirthday() + ", getAadharNumber()=" + getAadharNumber() + ", getPassword()="
+				+ getPassword() + ", getType()=" + getType() + ", getStatInd()=" + getStatInd() + ", getCreateDt()="
+				+ getCreateDt() + ", getUpdateDt()=" + getUpdateDt() + ", getRoleInfo()=" + getRoleInfo()
+				+ ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + ", toString()=" + super.toString()
+				+ "]";
 	}
 
 }

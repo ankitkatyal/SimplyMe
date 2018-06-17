@@ -1,27 +1,27 @@
 package com.society.management.repository;
 
-import com.society.management.entity.User;
-
 import java.util.List;
 
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
+
+import com.society.management.entity.UserInfo;
 
 @Repository
-public interface UserRepository extends CrudRepository<User, Long> {
+@Transactional
+public interface UserRepository extends JpaRepository<UserInfo, Integer> {
 
-	User findById(long Id);
+	UserInfo findById(long Id);
 
-	List<User> findByFirstName(String firstName);
+	List<UserInfo> findByFirstName(String firstName);
 
-	List<User> findByMiddleName(String middleName);
+	List<UserInfo> findByMiddleName(String middleName);
 
-	List<User> findByLastName(String lastName);
+	List<UserInfo> findByLastName(String lastName);
 
-	User findByEmail(String email);
-
-	User findByAadhar(String aadhar);
-
-	Boolean persist(User user);
+	UserInfo findByEmail(String email);
+	
+	UserInfo findByAadharNumber(String aadhar);
 
 }

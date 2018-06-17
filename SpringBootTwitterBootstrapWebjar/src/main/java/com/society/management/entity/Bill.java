@@ -1,4 +1,4 @@
-package com.society.management.domain;
+package com.society.management.entity;
 
 import java.util.Date;
 

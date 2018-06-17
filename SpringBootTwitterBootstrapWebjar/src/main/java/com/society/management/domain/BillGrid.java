@@ -2,6 +2,8 @@ package com.society.management.domain;
 
 import java.util.List;
 
+import com.society.management.entity.Bill;
+
 public class BillGrid {
 	
 	List<Bill> billingList;
