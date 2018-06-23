@@ -10,6 +10,6 @@ import com.society.management.entity.RoleInfo;
 @Transactional
 public interface RoleRepository extends JpaRepository<RoleInfo, Integer> {
 
-	RoleInfo findByRoleName(String roleName);
+	RoleInfo findByRole(String roleName);
 
 }

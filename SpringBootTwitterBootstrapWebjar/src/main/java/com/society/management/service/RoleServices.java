@@ -7,8 +7,8 @@ import com.society.management.entity.RoleInfo;
 @Service
 public interface RoleServices {
 
-	RoleInfo getRoleByRoleName(String roleName);
-
 	void saveRoleInfo(RoleInfo roleInfo);
+
+	RoleInfo findByRole(String roleName);
 
 }

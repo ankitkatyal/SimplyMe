@@ -1,18 +1,24 @@
 package com.society.management.entity;
 
+import java.util.Set;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToOne;
-
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
 
 @Entity
-public class UserInfo extends BaseEntity{
+@Table(name="user_info")
+public class UserInfo extends BaseEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@Column(name = "user_id")
 	private int id;
 	@Column(name = "first_name")
 	private String firstName;
@@ -40,8 +46,9 @@ public class UserInfo extends BaseEntity{
 	private Integer createDt;
 	@Column(name = "update_date")
 	private Integer updateDt;
-	@OneToOne(cascade = CascadeType.ALL)
-	RoleInfo roleInfo;
+	@ManyToMany(cascade = CascadeType.ALL)
+	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
+	private Set<RoleInfo> roleInfo;
 
 	public UserInfo() {
 		super();
@@ -49,7 +56,7 @@ public class UserInfo extends BaseEntity{
 
 	public UserInfo(int id, String firstName, String middleName, String lastName, String primaryContact,
 			String secondContact, String email, String birthday, String aadharNumber, String password, String type,
-			Integer statInd, Integer createDt, Integer updateDt, RoleInfo roleInfo) {
+			Integer statInd, Integer createDt, Integer updateDt, Set<RoleInfo> roleInfo) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -68,12 +75,12 @@ public class UserInfo extends BaseEntity{
 		this.roleInfo = roleInfo;
 	}
 
-	public int getId() {
-		return id;
-	}
-
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public int getId() {
+		return id;
 	}
 
 	public String getFirstName() {
@@ -180,12 +187,12 @@ public class UserInfo extends BaseEntity{
 		this.updateDt = updateDt;
 	}
 
-	public RoleInfo getRoleInfo() {
-		return roleInfo;
+	public void setRoleInfo(Set<RoleInfo> roleInfo) {
+		this.roleInfo = roleInfo;
 	}
 
-	public void setRoleInfo(RoleInfo roleInfo) {
-		this.roleInfo = roleInfo;
+	public Set<RoleInfo> getRoleInfo() {
+		return roleInfo;
 	}
 
 	@Override

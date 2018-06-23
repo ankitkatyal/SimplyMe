@@ -10,4 +10,6 @@ public interface UserServices extends UserDetailsService {
 	public User doLogin(UserInfo user);
 
 	public UserInfo doRegistration(UserInfo user);
+	
+	public UserInfo save(UserInfo userInfo);
 }

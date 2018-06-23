@@ -1,5 +1,7 @@
 package com.society.management.domain;
 
+import javax.validation.constraints.NotNull;
+
 public class User {
 
 	private int id;
@@ -8,10 +10,13 @@ public class User {
 	private String lastName;
 	private String primaryContact;
 	private String secondContact;
+	@NotNull
 	private String email;
 	private String birthday;
 	private String aadharNumber;
+	@NotNull
 	private String password;
+	private String matchingPassword;
 	private String type;
 	private Integer statInd;
 	private Integer createDt;
@@ -129,4 +134,11 @@ public class User {
 		this.updateDt = updateDt;
 	}
 
+	public void setMatchingPassword(String matchingPassword) {
+		this.matchingPassword = matchingPassword;
+	}
+
+	public String getMatchingPassword() {
+		return matchingPassword;
+	}
 }

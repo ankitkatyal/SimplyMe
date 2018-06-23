@@ -1,9 +1,14 @@
 package com.society.management.controller;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Arrays;
+import java.util.HashSet;
+
+import javax.validation.Valid;
 
 import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -15,6 +20,7 @@ import com.society.management.entity.RoleInfo;
 import com.society.management.entity.UserInfo;
 import com.society.management.service.RoleServices;
 import com.society.management.service.UserServices;
+import com.society.management.util.RoleEnum;
 
 @Controller
 public class RegistrationController {
@@ -22,20 +28,21 @@ public class RegistrationController {
 	private UserServices userServices;
 	@Autowired
 	private RoleServices roleServices;
+	@Autowired
+	BCryptPasswordEncoder bCryptPasswordEncoder;
 
 	@RequestMapping(value = "/registration", method = RequestMethod.POST)
-	public String registration(@ModelAttribute("user") User user, ModelMap userMap)
+	public String registration(@ModelAttribute("user") @Valid User user, ModelMap userMap)
 			throws IllegalAccessException, InvocationTargetException {
-		System.out.println("Hello");
-
 		UserInfo userInfo = new UserInfo();
 		BeanUtils.copyProperties(userInfo, user);
-		RoleInfo roleInfo = new RoleInfo();
-		roleInfo.setRoleName("GUEST");
-		userInfo.setRoleInfo(roleInfo);
+		userInfo.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+		userInfo.setStatInd(1);
+		RoleInfo userRole = roleServices.findByRole(RoleEnum.GUEST.name());
+		userInfo.setRoleInfo(new HashSet<RoleInfo>(Arrays.asList(userRole)));
+		userServices.save(userInfo);
 		userServices.doRegistration(userInfo);
-		return "sidebar";
-
+		return "HomeMenu";
 	}
 
 }

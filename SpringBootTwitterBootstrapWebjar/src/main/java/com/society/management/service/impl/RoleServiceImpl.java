@@ -14,13 +14,13 @@ public class RoleServiceImpl implements RoleServices {
 	private RoleRepository roleRepository;
 
 	@Override
-	public RoleInfo getRoleByRoleName(String roleName) {
-		return roleRepository.findByRoleName(roleName);
+	public void saveRoleInfo(RoleInfo roleInfo) {
+		roleRepository.save(roleInfo);
 	}
 
 	@Override
-	public void saveRoleInfo(RoleInfo roleInfo) {
-		roleRepository.save(roleInfo);
+	public RoleInfo findByRole(String roleName) {
+		return roleRepository.findByRole(roleName);
 	}
 
 }
