@@ -18,7 +18,7 @@ public class LoginController {
 		return "videoLogin2";
 	}
 
-	@RequestMapping(value = "/login", method = RequestMethod.POST)
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
 	public String Greeting(@ModelAttribute("user") User user, ModelMap userMap) {
 		userMap.addAttribute("username", user.getEmail());
 		userMap.addAttribute("password", user.getPassword());
