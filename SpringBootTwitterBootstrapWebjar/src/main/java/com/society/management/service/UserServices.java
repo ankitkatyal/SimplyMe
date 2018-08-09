@@ -12,4 +12,8 @@ public interface UserServices extends UserDetailsService {
 	public UserInfo doRegistration(UserInfo user);
 	
 	public UserInfo save(UserInfo userInfo);
+
+	public UserInfo findByEmail(String email);
+
+	public UserInfo findByConfirmationToken(String token);
 }

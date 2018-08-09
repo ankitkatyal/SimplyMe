@@ -24,4 +24,6 @@ public interface UserRepository extends JpaRepository<UserInfo, Integer> {
 	
 	UserInfo findByAadharNumber(String aadhar);
 
+	UserInfo findByConfirmationToken(String token);
+
 }

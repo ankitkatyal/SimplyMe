@@ -1,5 +1,6 @@
 package com.society.management.entity;
 
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -11,7 +12,13 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.PrePersist;
+import javax.persistence.PreUpdate;
 import javax.persistence.Table;
+
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
+import org.springframework.data.annotation.Transient;
 
 @Entity
 @Table(name="user_info")
@@ -20,32 +27,67 @@ public class UserInfo extends BaseEntity {
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	@Column(name = "user_id")
 	private int id;
+	
+	
 	@Column(name = "first_name")
+	@NotEmpty(message = "Please provide your first name")
 	private String firstName;
+	
+	@Column(name = "last_name")
+	@NotEmpty(message = "Please provide your last name")
+	private String lastName;
+	
+	
 	@Column(name = "middle_name")
 	private String middleName;
-	@Column(name = "last_name")
-	private String lastName;
+	
+	
 	@Column(name = "primary_contact")
 	private String primaryContact;
+	
+	
 	@Column(name = "secondry_contanct")
 	private String secondContact;
-	@Column(name = "email")
+	
+	
+	@Column(name = "email", nullable = false, unique = true)
+	@Email(message = "Please provide a valid e-mail")
+	@NotEmpty(message = "Please provide an e-mail")
 	private String email;
+	
+	
+	@Column(name = "confirmation_token")
+	private String confirmationToken;
+
+	
 	@Column(name = "birthday")
 	private String birthday;
+	
 	@Column(name = "aadhar_number")
 	private String aadharNumber;
+
 	@Column(name = "password")
+	@Transient
 	private String password;
+	
 	@Column(name = "type")
 	private String type;
+	
 	@Column(name = "stat_ind")
 	private Integer statInd;
+	
 	@Column(name = "create_date")
-	private Integer createDt;
+	private Date createDt;
+	
 	@Column(name = "update_date")
-	private Integer updateDt;
+	private Date updateDt;
+	
+
+	
+
+	@Column(name = "enabled")
+	private boolean enabled;
+	
 	@ManyToMany(cascade = CascadeType.ALL)
 	@JoinTable(name = "user_role", joinColumns = @JoinColumn(name = "id"), inverseJoinColumns = @JoinColumn(name = "role_id"))
 	private Set<RoleInfo> roleInfo;
@@ -56,7 +98,7 @@ public class UserInfo extends BaseEntity {
 
 	public UserInfo(int id, String firstName, String middleName, String lastName, String primaryContact,
 			String secondContact, String email, String birthday, String aadharNumber, String password, String type,
-			Integer statInd, Integer createDt, Integer updateDt, Set<RoleInfo> roleInfo) {
+			Integer statInd, Date createDt, Date updateDt, Set<RoleInfo> roleInfo) {
 		super();
 		this.id = id;
 		this.firstName = firstName;
@@ -75,6 +117,16 @@ public class UserInfo extends BaseEntity {
 		this.roleInfo = roleInfo;
 	}
 
+	@PrePersist
+	  protected void onCreate() {
+		createDt = new Date();
+	  }
+
+	  @PreUpdate
+	  protected void onUpdate() {
+	    updateDt = new Date();
+	  }
+	
 	public void setId(int id) {
 		this.id = id;
 	}
@@ -91,6 +143,15 @@ public class UserInfo extends BaseEntity {
 		this.firstName = firstName;
 	}
 
+
+	public String getConfirmationToken() {
+		return confirmationToken;
+	}
+
+	public void setConfirmationToken(String confirmationToken) {
+		this.confirmationToken = confirmationToken;
+	}
+	
 	public String getMiddleName() {
 		return middleName;
 	}
@@ -171,19 +232,19 @@ public class UserInfo extends BaseEntity {
 		this.statInd = statInd;
 	}
 
-	public Integer getCreateDt() {
+	public Date getCreateDt() {
 		return createDt;
 	}
 
-	public void setCreateDt(Integer createDt) {
+	public void setCreateDt(Date createDt) {
 		this.createDt = createDt;
 	}
 
-	public Integer getUpdateDt() {
+	public Date getUpdateDt() {
 		return updateDt;
 	}
 
-	public void setUpdateDt(Integer updateDt) {
+	public void setUpdateDt(Date updateDt) {
 		this.updateDt = updateDt;
 	}
 
@@ -193,6 +254,14 @@ public class UserInfo extends BaseEntity {
 
 	public Set<RoleInfo> getRoleInfo() {
 		return roleInfo;
+	}
+	
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
 	}
 
 	@Override

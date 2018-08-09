@@ -8,7 +8,7 @@ CREATE  TABLE lotus.user_info (
   `last_name` varchar(25) DEFAULT NULL,
   `primary_contact` varchar(15) DEFAULT NULL,
   `secondry_contanct` varchar(15) DEFAULT NULL,
-  `email` varchar(20) DEFAULT NULL,
+  `email` varchar(100) DEFAULT NULL,
   `birthday` date DEFAULT NULL,
   `aadhar_number` varchar(15) default NULL,
   `password` varchar(100) NOT NULL,

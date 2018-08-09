@@ -5,7 +5,6 @@ import java.util.Set;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -15,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.society.management.entity.UserInfo;
 import com.society.management.repository.UserRepository;
-import com.society.management.service.UserServices;
+import com.society.management.service.UserServices; 
 
 @Service
 public class UserServiceImpl implements UserServices {
@@ -52,6 +51,16 @@ public class UserServiceImpl implements UserServices {
 	@Override
 	public UserInfo save(UserInfo userInfo) {
 		return userRepo.save(userInfo);
+	}
+
+	@Override
+	public UserInfo findByEmail(String email) {
+		return userRepo.findByEmail(email);
+	}
+
+	@Override
+	public UserInfo findByConfirmationToken(String token) {
+		return userRepo.findByConfirmationToken(token);
 	}
 
 }

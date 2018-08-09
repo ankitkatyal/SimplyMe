@@ -14,13 +14,30 @@ public class User {
 	private String email;
 	private String birthday;
 	private String aadharNumber;
-	@NotNull
 	private String password;
 	private String matchingPassword;
 	private String type;
 	private Integer statInd;
 	private Integer createDt;
 	private Integer updateDt;
+	private boolean enabled;
+	private String confirmationToken;
+	
+	public String getConfirmationToken() {
+		return confirmationToken;
+	}
+
+	public void setConfirmationToken(String confirmationToken) {
+		this.confirmationToken = confirmationToken;
+	}
+
+	public boolean isEnabled() {
+		return enabled;
+	}
+
+	public void setEnabled(boolean enabled) {
+		this.enabled = enabled;
+	}
 
 	public int getId() {
 		return id;

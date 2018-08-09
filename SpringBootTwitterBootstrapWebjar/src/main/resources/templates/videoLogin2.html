@@ -20,6 +20,8 @@
         }
         
     </script>
+<script
+	src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <link rel="stylesheet" href="css/transstyle.css" type="text/css"
 	media="all" />
 <link rel="stylesheet" href="css/font-awesome.css" type="text/css"
@@ -44,9 +46,9 @@
 	<div class="fullscreen-bg">
 		<video loop="loop" autoplay="autoplay" poster="images/lb.jpg"
 			class="fullscreen-bg__video">
-			<source src="videos/nature.webm" type="video/webm" />
+			<!-- <source src="videos/nature.webm" type="video/webm" />
 			<source src="videos/nature.mp4" type="video/mp4" />
-			<source src="videos/nature.ogv" type="video/ogg" />
+			<source src="videos/nature.ogv" type="video/ogg" /> -->
 		</video>
 	</div>
 	<!--video closed-->
@@ -63,30 +65,29 @@
 		<div class="tab-content">
 			<div id="login">
 				<div class="content-bottom">
-					<form action="#" th:action="@{/login}" th:object="${user}" method="post">
+					<form action="#" th:action="@{/login}" th:object="${user}"
+						method="post">
 						<div class="field-group">
 							<span class="fa fa-user" aria-hidden="true"></span>
 							<div class="wthree-field">
-								<input name="email" id="email" th:field="*{email}" type="email" value=""
-									placeholder="Email" required="required" />
+								<input name="email" id="email" th:field="*{email}" type="email"
+									value="" placeholder="Email" required="required" />
 							</div>
 						</div>
 						<div class="field-group">
 							<span class="fa fa-lock" aria-hidden="true"></span>
 							<div class="wthree-field">
-								<input name="password" id="myInput1" th:field="*{password}"  type="Password"
-									placeholder="password" required="required" />
+								<input name="password" id="myInput1" th:field="*{password}"
+									type="Password" placeholder="password" required="required" />
 							</div>
 						</div>
 						<div class="field-group">
 							<div class="check">
-								<input type="checkbox"
-									onclick="myFunction1()" /> 
-									<label class="checkbox w3l" >show password
-								</label>
+								<input type="checkbox" onclick="myFunction1()" /> <label
+									class="checkbox w3l">show password </label>
 							</div>
 							<!-- script for show password -->
-						
+
 							<!-- //script for show password -->
 						</div>
 						<div class="wthree-field">
@@ -103,20 +104,37 @@
 			</div>
 			<div id="signup">
 				<div class="content-bottom">
-					<form action="#" th:action="@{/registration}" th:object="${user}" method="post">
+					<form action="#" th:action="@{/registration}" th:object="${user}"
+						method="post" role="form" data-toggle="validator">
+						<div th:if="${confirmationMessage}" class="alert alert-success"
+							role="alert" th:text=${confirmationMessage}></div>
+
+						<div th:if="${alreadyRegisteredMessage}"
+							class="alert alert-danger" role="alert"
+							th:text="${alreadyRegisteredMessage}"></div>
+
+
+						<div th:if="${#fields.hasErrors('firstName')}"
+							th:errors="*{firstName}"
+							class="validation-message alert alert-danger" role="alert"></div>
+
+						<div th:if="${#fields.hasErrors('lastName')}"
+							th:errors="*{lastName}"
+							class="validation-message alert alert-danger" role="alert"></div>
 						<div class="field-group">
 							<span class="fa fa-user" aria-hidden="true"></span>
 							<div class="wthree-field">
 								<div class="col-md-6">
 									<div class="form-inline">
-										<input name="text1" id="firstName" th:field="*{firstName}" type="text" value=""
-											placeholder="First Name" required="required" />
+										<input name="text1" id="firstName" th:field="*{firstName}"
+											type="text" value="" placeholder="First Name"
+											required="required" />
 									</div>
 								</div>
 								<div class="col-md-6">
 									<div class="form-inline">
-										<input name="text1" id="lastName" th:field="*{lastName}" type="text" value=""
-											placeholder="Last Name" />
+										<input name="text1" id="lastName" th:field="*{lastName}"
+											type="text" value="" placeholder="Last Name" />
 									</div>
 								</div>
 
@@ -125,11 +143,12 @@
 						<div class="field-group">
 							<span class="fa fa-lock" aria-hidden="true"></span>
 							<div class="wthree-field">
-								<input name="email" id="SignEmail" type="email"  th:field="*{email}" placeholder="Email"
-									required="required" />
+								<input name="email" id="SignEmail" type="email"
+									th:field="*{email}" placeholder="Email"
+									data-error="This email address is invalid" required="required" />
 							</div>
 						</div>
-						<div class="field-group">
+						<!-- 			<div class="field-group">
 							<span class="fa fa-lock" aria-hidden="true"></span>
 							<div class="wthree-field">
 								<input name="password" id="myInput" th:field="*{password}" type="Password"
@@ -142,10 +161,7 @@
 								<label class="checkbox w3l" >show password
 								</label>
 								</div>
-							<!-- script for show password -->
-						
-							<!-- //script for show password -->
-						</div>
+						</div> -->
 						<div class="wthree-field">
 							<input id="saveDetails" name="saveDetails" type="submit"
 								value="sign up" />
@@ -172,7 +188,18 @@
 		<p style="color: black;">&copy; Page designed by Simplified
 			Solution</p>
 	</div>
-		<script>
+	<script
+    src="//ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
+  <!-- Bootstrap -->
+  <script
+    src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
+    integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+    crossorigin="anonymous"></script>
+
+  <!-- Bootstrap Validator plugin -->
+  <script src="//cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.9/validator.min.js"></script>
+	<script>
                         function myFunction1() {
                         	document.getElementById("myInput1").innerHTML = 5 + 6;
                             var x = document.getElementById("myInput1");
@@ -183,7 +210,7 @@
                             }
                         }
                     </script>
-                    	<script>
+	<script>
                         function myFunction() {
                         	document.getElementById("myInput").innerHTML = 5 + 7;
                         	
