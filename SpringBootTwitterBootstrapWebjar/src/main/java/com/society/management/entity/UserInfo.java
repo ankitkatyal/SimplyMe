@@ -59,6 +59,8 @@ public class UserInfo extends BaseEntity {
 	@Column(name = "confirmation_token")
 	private String confirmationToken;
 
+	@Column(name = "token_expiry_date")
+	private Date tokenExpiryDate;
 	
 	@Column(name = "birthday")
 	private String birthday;
@@ -262,6 +264,15 @@ public class UserInfo extends BaseEntity {
 
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
+	}
+
+	
+	public Date getTokenExpiryDate() {
+		return tokenExpiryDate;
+	}
+
+	public void setTokenExpiryDate(Date tokenExpiryDate) {
+		this.tokenExpiryDate = tokenExpiryDate;
 	}
 
 	@Override
