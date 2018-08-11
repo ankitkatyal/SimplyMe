@@ -13,10 +13,17 @@
 <script>
         addEventListener("load", function () {
             setTimeout(hideURLbar, 0);
+           getMessage();
         }, false);
 
         function hideURLbar() {
             window.scrollTo(0, 1);
+        }
+        
+         function getMessage(){
+        	if(document.getElementById("signuperror").length != 0){
+        		document.getElementById('signUpId').click();
+        	}
         }
         
     </script>
@@ -62,11 +69,19 @@
 			<li class="tab"><a href="#signup">Sign Up</a></li>
 
 		</ul>
+		
 		<div class="tab-content">
-			<div id="login">
+		<div id="login">
 				<div class="content-bottom">
-					<form action="#" th:action="@{/login}" th:object="${user}"
-						method="post">
+				<form action="#" th:action="@{/}" th:object="${user}"
+			method="post" role="form" data-toggle="validator">
+						<div style="color:red;" th:if="${usernamePasswordDoesntMatch}" class="alert alert-danger"
+							role="alert" th:text=${usernamePasswordDoesntMatch}></div>
+
+						<div style="color:red;" th:if="${nonActiveEmail}"
+							class="alert alert-danger" role="alert"
+							th:text="${nonActiveEmail}"></div>
+						
 						<div class="field-group">
 							<span class="fa fa-user" aria-hidden="true"></span>
 							<div class="wthree-field">
@@ -95,7 +110,7 @@
 								value="sign in" />
 						</div>
 						<ul class="list-login">
-							<li class="tab"><a href="#signup">Sign Up</a></li>
+							<li class="tab"><a id="signUpId" href="#signup">Sign Up</a></li>
 							<li><a href="#" class="text-right">forgot password?</a></li>
 							<li class="clearfix"></li>
 						</ul>
@@ -106,11 +121,11 @@
 				<div class="content-bottom">
 					<form action="#" th:action="@{/registration}" th:object="${user}"
 						method="post" role="form" data-toggle="validator">
-						<div th:if="${confirmationMessage}" class="alert alert-success"
-							role="alert" th:text=${confirmationMessage}></div>
+						<div style="color:green;" th:if="${confirmationMessage}" class="alert alert-success"
+							id="signuperror" role="alert" th:text=${confirmationMessage}></div>
 
-						<div th:if="${alreadyRegisteredMessage}"
-							class="alert alert-danger" role="alert"
+						<div style="color:red;" th:if="${alreadyRegisteredMessage}"
+							class="alert alert-danger" id="signuperror" role="alert"
 							th:text="${alreadyRegisteredMessage}"></div>
 
 

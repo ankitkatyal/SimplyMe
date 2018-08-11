@@ -10,6 +10,8 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.security.web.authentication.SimpleUrlAuthenticationSuccessHandler;
 
 import com.society.management.service.UserServices;
 
@@ -25,9 +27,19 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 		http.authorizeRequests()
 				.antMatchers("/registration", "/", "/css/**", "/images/**", "/webjars/**", "/videos/**", "/js/**",
 						"/fonts/**", "/vendor/**", "/sass/**,**/confirm/**")
-				.permitAll().antMatchers("/confirm").permitAll().antMatchers("/HomeMenu").access("hasRole('ROLE_USER') or hasRole('ROLE_ADMIN')")
+				.permitAll().antMatchers("/confirm").permitAll().antMatchers("/HomeMenu").permitAll().antMatchers("/videoLogin2").permitAll().antMatchers("/lotusBoulevard/").permitAll()
 				.anyRequest().authenticated().and().formLogin().loginPage("/login").permitAll().and().logout()
-				.permitAll();
+				.permitAll().and().formLogin()
+	            .loginPage("/registration").successHandler(successHandler())
+	            .permitAll();
+	        
+	}
+	
+	@Bean
+	public AuthenticationSuccessHandler successHandler() {
+	    SimpleUrlAuthenticationSuccessHandler handler = new SimpleUrlAuthenticationSuccessHandler();
+	    handler.setUseReferer(true);
+	    return handler;
 	}
 
 	@Autowired

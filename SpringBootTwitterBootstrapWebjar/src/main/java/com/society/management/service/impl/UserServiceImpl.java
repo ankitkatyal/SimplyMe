@@ -1,8 +1,10 @@
 package com.society.management.service.impl;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashSet;
 import java.util.Set;
 
+import org.apache.commons.beanutils.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -50,7 +52,21 @@ public class UserServiceImpl implements UserServices {
 
 	@Override
 	public UserInfo save(UserInfo userInfo) {
+		if(findByEmail(userInfo.getEmail())!=null){
+			UserInfo existingUser =findByEmail(userInfo.getEmail());
+			copyCommonProperties(existingUser, userInfo);
+			userRepo.flush();
+			return existingUser;
+		}
 		return userRepo.save(userInfo);
+	}
+	
+	public UserInfo copyCommonProperties(UserInfo existingUser,UserInfo newUser){
+		existingUser.setFirstName(newUser.getFirstName());
+		existingUser.setLastName(newUser.getLastName());
+		existingUser.setTokenExpiryDate(newUser.getTokenExpiryDate());
+		existingUser.setConfirmationToken(newUser.getConfirmationToken());
+		return existingUser;
 	}
 
 	@Override

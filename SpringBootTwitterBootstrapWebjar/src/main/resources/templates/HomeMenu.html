@@ -3,24 +3,31 @@
 
 <head>
 
-    <meta charset="utf-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
-    <meta name="description" content=""/>
-    <meta name="author" content=""/>
+<meta charset="utf-8" />
+<meta name="viewport"
+	content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+<meta name="description" content="" />
+<meta name="author" content="" />
 
-    <title>Simple Sidebar - Start Bootstrap Template</title>
+<title>Simple Sidebar - Start Bootstrap Template</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
+<!-- Bootstrap core CSS -->
+<link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
 
-    <!-- Custom styles for this template -->
-    <link href="css/simple-sidebar.css" rel="stylesheet"/>
-    <style>
-body  {
-    background-image: url("images/road-sky-clouds-cloudy.jpg");
-    background-repeat: no-repeat;
-    background-size: auto;
-    background-size: cover;
+<!-- Custom styles for this template -->
+<link href="css/simple-sidebar.css" rel="stylesheet" />
+<style>
+.topright {
+    position: absolute;
+    top: 8px;
+    right: 16px;
+    font-size: 18px;
+}
+body {
+	background-image: url("images/road-sky-clouds-cloudy.jpg");
+	background-repeat: no-repeat;
+	background-size: auto;
+	background-size: cover;
 }
 </style>
 
@@ -28,66 +35,54 @@ body  {
 
 <body>
 
-    <div id="wrapper"  >
+	<div id="wrapper">
+		<!-- Sidebar -->
+		<nav id="sidebar">
+			<div id="sidebar-wrapper">
+				<ul class="sidebar-nav">
+					<li class="sidebar-brand"><a href="#"> Welcome </a></li>
+					<li><a href="#">Home</a></li>
+					<li><a href="#">Billing</a></li>
+					<li><a href="#">Admin</a></li>
+					<li><a href="#">Services Desk</a></li>
+					<li><a href="#">Lotus Boulevard Gallery</a></li>
+					<li><a href="#">Feedbacks</a></li>
+					<li><a href="#">Contact</a></li>
+				</ul>
+			</div>
+			<!-- /#sidebar-wrapper -->
+		</nav>
+		<!-- Page Content -->
+		<div id="container-login100">
+			<div class="topright">
+				<strong><span th:text="${welcomeUser}"/></strong>
+			</div>
+		</div>
+		<div class="container-fluid">
+			<h1
+				style="text-align: center; font-family: fantasy; font-weight: bold;">Lotus
+				Boulevard Society Management</h1>
+			<a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">&larr;
+				Menu</a>
+		</div>
+	</div>
+	<!-- /#page-content-wrapper -->
 
-        <!-- Sidebar -->
-        <nav id="sidebar">
-        <div id="sidebar-wrapper">
-            <ul class="sidebar-nav">
-                <li class="sidebar-brand">
-                    <a href="#">
-                        Welcome
-                    </a>
-                </li>
-                <li>
-                    <a href="#">Home</a>
-                </li>
-                <li>
-                    <a href="#">Billing</a>
-                </li>
-                <li>
-                    <a href="#">Admin</a>
-                </li>
-                <li>
-                    <a href="#">Services Desk</a>
-                </li>
-                <li>
-                    <a href="#">Lotus Boulevard Gallery</a>
-                </li>
-                <li>
-                    <a href="#">Feedbacks</a>
-                </li>
-                <li>
-                    <a href="#">Contact</a>
-                </li>
-            </ul>
-        </div>
-        <!-- /#sidebar-wrapper -->
- </nav>
-        <!-- Page Content -->
-        <div id="container-login100">
-            <div class="container-fluid" >
-                <h1 style="text-align:center;font-family: fantasy;font-weight: bold;">Lotus Boulevard Society Management</h1>
-                <a href="#menu-toggle" class="btn btn-secondary" id="menu-toggle">&larr; Menu</a>
-            </div>
-        </div>
-        <!-- /#page-content-wrapper -->
+	</div>
 
-    </div>
-   
-    <!-- /#wrapper -->
+	<!-- /#wrapper -->
 
-    <!-- Bootstrap core JavaScript -->
-    <script src="vendor/jquery/jquery.min.js"></script>
-    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+	<!-- Bootstrap core JavaScript -->
+	<script src="vendor/jquery/jquery.min.js"></script>
+	<script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
 
-    <!-- Menu Toggle Script -->
-    <script>
-    $("#menu-toggle").click(function(e) {
-        e.preventDefault();
-        $("#wrapper").toggleClass("toggled");
-    });
-    </script>
+	<!-- Menu Toggle Script -->
+	<script>
+		$("#menu-toggle").click(function(e) {
+			e.preventDefault();
+			$("#wrapper").toggleClass("toggled");
+		});
+	</script>
 
 </body>
 
