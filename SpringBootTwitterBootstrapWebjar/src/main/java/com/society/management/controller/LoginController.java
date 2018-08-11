@@ -17,7 +17,7 @@ import com.society.management.entity.UserInfo;
 import com.society.management.service.UserServices;
 
 @Controller
-public class LoginController1 extends WebMvcConfigurerAdapter {
+public class LoginController extends WebMvcConfigurerAdapter {
 	
 	@Autowired
 	private UserServices userServices;
