@@ -24,11 +24,11 @@ public class TenantHistory {
     @JoinColumn(name = "user_id")
     private UserInfo tenantInfo;
 	@Column(name = "start_date")
-	private Date start_date;
+	private Date startDate;
 	@Column(name = "vaccant_date")
-	private Date vaccant_date;
+	private Date vaccantDate;
 	@Column(name = "rent_amount")
-	private BigDecimal purchase_amount;
+	private BigDecimal rentAmount;
 	
 	
 	public int getFlatTenantHistoryId() {
@@ -49,24 +49,23 @@ public class TenantHistory {
 	public void setTenantInfo(UserInfo tenantInfo) {
 		this.tenantInfo = tenantInfo;
 	}
-	public Date getStart_date() {
-		return start_date;
+	public Date getStartDate() {
+		return startDate;
 	}
-	public void setStart_date(Date start_date) {
-		this.start_date = start_date;
+	public void setStartDate(Date startDate) {
+		this.startDate = startDate;
 	}
-	public Date getVaccant_date() {
-		return vaccant_date;
+	public Date getVaccantDate() {
+		return vaccantDate;
 	}
-	public void setVaccant_date(Date vaccant_date) {
-		this.vaccant_date = vaccant_date;
+	public void setVaccantDate(Date vaccantDate) {
+		this.vaccantDate = vaccantDate;
 	}
-	public BigDecimal getPurchase_amount() {
-		return purchase_amount;
+	public BigDecimal getRentAmount() {
+		return rentAmount;
 	}
-	public void setPurchase_amount(BigDecimal purchase_amount) {
-		this.purchase_amount = purchase_amount;
+	public void setRentAmount(BigDecimal rentAmount) {
+		this.rentAmount = rentAmount;
 	}
-	
 
 }

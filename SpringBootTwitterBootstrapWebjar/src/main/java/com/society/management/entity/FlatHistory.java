@@ -24,13 +24,15 @@ public class FlatHistory {
     @JoinColumn(name = "user_id")
     private UserInfo ownerInfo;
 	@Column(name = "purchase_date")
-	private Date purchase_date;
+	private Date purchaseDate;
 	@Column(name = "sold_date")
-	private Date sold_date;
+	private Date soldDate;
 	@Column(name = "purchase_amount")
-	private BigDecimal purchase_amount;
+	private BigDecimal purchaseAmount;
 	@Column(name = "sold_amount")
-	private BigDecimal sold_amount;
+	private BigDecimal soldAmount;
+	
+	
 	public int getFlatHistoryId() {
 		return flatHistoryId;
 	}
@@ -49,30 +51,32 @@ public class FlatHistory {
 	public void setOwnerInfo(UserInfo ownerInfo) {
 		this.ownerInfo = ownerInfo;
 	}
-	public Date getPurchase_date() {
-		return purchase_date;
+	public Date getPurchaseDate() {
+		return purchaseDate;
 	}
-	public void setPurchase_date(Date purchase_date) {
-		this.purchase_date = purchase_date;
+	public void setPurchaseDate(Date purchaseDate) {
+		this.purchaseDate = purchaseDate;
 	}
-	public Date getSold_date() {
-		return sold_date;
+	public Date getSoldDate() {
+		return soldDate;
 	}
-	public void setSold_date(Date sold_date) {
-		this.sold_date = sold_date;
+	public void setSoldDate(Date soldDate) {
+		this.soldDate = soldDate;
 	}
-	public BigDecimal getPurchase_amount() {
-		return purchase_amount;
+	public BigDecimal getPurchaseAmount() {
+		return purchaseAmount;
 	}
-	public void setPurchase_amount(BigDecimal purchase_amount) {
-		this.purchase_amount = purchase_amount;
+	public void setPurchaseAmount(BigDecimal purchaseAmount) {
+		this.purchaseAmount = purchaseAmount;
 	}
-	public BigDecimal getSold_amount() {
-		return sold_amount;
+	public BigDecimal getSoldAmount() {
+		return soldAmount;
 	}
-	public void setSold_amount(BigDecimal sold_amount) {
-		this.sold_amount = sold_amount;
+	public void setSoldAmount(BigDecimal soldAmount) {
+		this.soldAmount = soldAmount;
 	}
+	
+	
 
 	
 }
