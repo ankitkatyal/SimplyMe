@@ -65,6 +65,7 @@ public class ParkingInfo {
 	public int getParkingNumber() {
 		return parkingNumber;
 	}
+	
 	public void setParkingNumber(int parkingNumber) {
 		this.parkingNumber = parkingNumber;
 	}

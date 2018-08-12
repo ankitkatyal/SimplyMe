@@ -29,5 +29,44 @@ public class TenantHistory {
 	private Date vaccant_date;
 	@Column(name = "rent_amount")
 	private BigDecimal purchase_amount;
+	
+	
+	public int getFlatTenantHistoryId() {
+		return flatTenantHistoryId;
+	}
+	public void setFlatTenantHistoryId(int flatTenantHistoryId) {
+		this.flatTenantHistoryId = flatTenantHistoryId;
+	}
+	public FlatInfo getFlatInfo() {
+		return flatInfo;
+	}
+	public void setFlatInfo(FlatInfo flatInfo) {
+		this.flatInfo = flatInfo;
+	}
+	public UserInfo getTenantInfo() {
+		return tenantInfo;
+	}
+	public void setTenantInfo(UserInfo tenantInfo) {
+		this.tenantInfo = tenantInfo;
+	}
+	public Date getStart_date() {
+		return start_date;
+	}
+	public void setStart_date(Date start_date) {
+		this.start_date = start_date;
+	}
+	public Date getVaccant_date() {
+		return vaccant_date;
+	}
+	public void setVaccant_date(Date vaccant_date) {
+		this.vaccant_date = vaccant_date;
+	}
+	public BigDecimal getPurchase_amount() {
+		return purchase_amount;
+	}
+	public void setPurchase_amount(BigDecimal purchase_amount) {
+		this.purchase_amount = purchase_amount;
+	}
+	
 
 }
