@@ -1,0 +1,6 @@
+package com.society.management.enums;
+
+public enum FlatType {
+
+	ONEBHK,TWOBHK,THREEBHK,TWOBHKSTUDY,ONEBHKSTUDY,THREEBHKSERVANT,THREEBHKSTUDYSERVANT
+}
